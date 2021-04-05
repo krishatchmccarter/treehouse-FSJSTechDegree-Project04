@@ -21,3 +21,25 @@ If the phrase includes the guessed letter, add the chosen CSS class to the selec
 removeLife(): this method removes a life from the scoreboard, by replacing one of the liveHeart.png images with a lostHeart.png image (found in the images folder) and increments the missed property. If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
 checkForWin(): this method checks to see if the player has revealed all of the letters in the active phrase.
 gameOver(): this method displays the original start screen overlay, and depending on the outcome of the game, updates the overlay h1 element with a friendly win or loss message, and replaces the overlay’s start CSS class with either the win or lose CSS class. */
+class Game {
+  constructor() {
+    this.missed = 0;
+    this.phrases = this.createPhrases();
+    this.activePhrase = "null";
+  }
+
+  /**
+   * Creates phrases for use in game
+   * @return {array} An array of phrases that could be used in the game
+   */
+  createPhrases() {
+    const phrases = [
+      new Phrase("Life is like a box of chocolates"),
+      new Phrase("There is no Trying"),
+      new Phrase("May the Force be with you"),
+      new Phrase("You have to see the Matrix for yourself"),
+      new Phrase("You talking to me"),
+    ];
+    return phrases;
+  }
+}
