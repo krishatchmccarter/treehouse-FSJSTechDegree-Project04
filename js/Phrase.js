@@ -16,4 +16,30 @@ class Phrase {
   constructor(phrase) {
     this.phrase = phrase.toLowerCase();
   }
+
+  /**
+   * Display phrase on game board
+   */
+  addPhraseToDisplay() {
+    const phraseDiv = document.getElementById("phrase");
+
+    for (let i = 0; i < this.phrase.length; i++) {
+      const letter = this.phrase.slice(i, i + 1);
+      let li = document.createElement("li");
+      li.textContent = letter;
+      phraseDiv.lastElementChild.appendChild(li);
+      if (letter === " ") {
+        li.classList.add("hide");
+        li.classList.add("space");
+      } else {
+        li.classList.add("hide");
+        li.classList.add("letter");
+        li.classList.add(`${letter}`);
+      }
+    }
+  }
+
+  //loop over the this.phrase property and in the loop use a condition to check if its a space or a letter.
+
+  //set the text property for those letter li elements, when you are setting the className if it's a letter set the text Content of the li element equal to the letter in the phrase.
 }
