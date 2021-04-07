@@ -2,16 +2,14 @@
  * Project 4 - OOP Game App
  * Phrase.js */
 
-//addPhraseToDisplay(): When the player correctly guesses a letter, the empty box is replaced with the matched letter (see the showMatchedLetter() method below). Make sure the phrase displayed on the screen uses the letter CSS class for letters and the space CSS class for spaces.
-
-//showMatchedLetter(): reveals the letter(s) on the board that matches the player's selection. To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter and replace each selected element's hide CSS class with the show CSS class. */
-
 //Phrase constructor receives a phrase parameter and initializes phrase property.  phrase is the actual phrase the Phrase object is representing converted to all lower case.
 
 class Phrase {
   constructor(phrase) {
     this.phrase = phrase.toLowerCase();
   }
+
+  //(partially done) addPhraseToDisplay(): When the player correctly guesses a letter, the empty box is replaced with the matched letter (see the showMatchedLetter() method below). Make sure the phrase displayed on the screen uses the letter CSS class for letters and the space CSS class for spaces.
 
   /**
    * Display phrase on game board
@@ -46,6 +44,8 @@ class Phrase {
   checkLetter(letter) {
     if (this.phrase.includes(letter)) {
       return true;
+    } else {
+      return false;
     }
   }
 
@@ -56,13 +56,18 @@ class Phrase {
    * @param (string) letter - Letter to display
    */
   showMatchedLetter(letter) {
-    const hiddenLetters = document.getElementsByClassName("hide"); //returns a collection of HTML Elements
+    const hiddenLetters = document.getElementsByClassName("hide letter"); //returns a collection of HTML Elements
 
     //loop through collection and if className matches letter, toggle show/hide classes
     for (let i = 0; i < hiddenLetters.length; i++) {
-      if (hiddenLetters[i].className === letter) {
-        hiddenLetters[i].classList.add("show");
-        hiddenLetters[i].classList.remove("hide");
+      const hiddenLetterClassString = hiddenLetters[i].className;
+      for (let x = 0; x < hiddenLetterClassString.length; x++) {
+        if (
+          hiddenLetterClassString.charAt(hiddenLetterClassString.length - 1) ===
+          letter
+        ) {
+          hiddenLetters[i].classList.add("show");
+        }
       }
     }
   }
