@@ -5,10 +5,7 @@
 /**Game.js to create a Game class methods for starting and ending the game, handling interactions, getting a random phrase, checking for a win, and removing a life from the
 scoreboard. */
 
-/**Create the Game class in the Game.js file.
-The class should include a constructor that initializes the following properties:
-
-The class should also have these methods:
+/**The class should also have these methods:
 handleInteraction(): this method controls most of the game logic. It checks to see if the button clicked by the player matches a letter in the phrase, and then directs the game based on a correct or incorrect guess. This method should:
 Disable the selected letter’s onscreen keyboard button.
 If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
@@ -59,5 +56,17 @@ class Game {
     document.getElementById("overlay").style.display = "none";
     this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
+  }
+  /**
+* Checks for winning move
+* @return {boolean} True if game has been won, false if game wasn't
+won
+*/
+  checkForWin() {
+    if (document.getElementsByClassName("hide letter").length === 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
