@@ -56,18 +56,12 @@ class Phrase {
    * @param (string) letter - Letter to display
    */
   showMatchedLetter(letter) {
-    const hiddenLetters = document.getElementsByClassName("hide letter"); //returns a collection of HTML Elements
+    const phraseLetters = document.getElementsByClassName("letter"); //returns a collection of HTML Elements
 
     //loop through collection and if className matches letter, toggle show/hide classes
-    for (let i = 0; i < hiddenLetters.length; i++) {
-      const hiddenLetterClassString = hiddenLetters[i].className;
-      for (let x = 0; x < hiddenLetterClassString.length; x++) {
-        if (
-          hiddenLetterClassString.charAt(hiddenLetterClassString.length - 1) ===
-          letter
-        ) {
-          hiddenLetters[i].classList.add("show");
-        }
+    for (let i = 0; i < phraseLetters.length; i++) {
+      if (`hide letter ${letter}` === phraseLetters[i].className) {
+        phraseLetters[i].className = `show letter ${letter}`;
       }
     }
   }
