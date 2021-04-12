@@ -69,4 +69,40 @@ won
       return false;
     }
   }
+
+  /**
+   * Increases the value of the missed property
+   * Removes a life from the scoreboard
+   * Checks if player has remaining lives and ends game if player is out
+   */
+  removeLife() {
+    //replaces one of the liveheart images with a lostheart image and increments the missed property. If the player has five missed guesses, then ends the game by calling gameOver();
+
+    let index = this.missed;
+    let currentScoreboardItem = document.getElementsByClassName("tries");
+    currentScoreboardItem[index].firstElementChild.src = "images/lostHeart.png";
+    currentScoreboardItem[index].firstElementChild.alt = "Lost Heart Icon";
+    this.missed += 1;
+
+    if (this.missed === 5) {
+      this.gameOver(false);
+    }
+  }
+
+  /**
+   * Displays game over message
+   * @param {boolean} gameWon - Whether or not the user won the game
+   */
+  gameOver(gameWon) {
+    document.getElementById("overlay").style.display = "flex";
+
+    if (gameWon) {
+      document.getElementById("overlay").className = "win";
+      document.getElementById("game-over-message").textContent = "Great Job!";
+    } else {
+      document.getElementById("overlay").className = "lose";
+      document.getElementById("game-over-message").textContent =
+        "Sorry, better luck next time!";
+    }
+  }
 }
