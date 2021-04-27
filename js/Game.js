@@ -111,14 +111,19 @@ won
    * @param (HTMLButtonElement) button - The clicked button element
    */
   handleInteraction(button) {
-    console.log(button);
     //disable the selected letter's onscreen keyboard button
     button.disabled = true;
 
     if (game.activePhrase.checkLetter(button.textContent)) {
-      console.log("fired true");
+      button.className = "chosen";
+      game.activePhrase.showMatchedLetter(button.textContent);
+
+      if (game.checkForWin()) {
+        game.gameOver(true);
+      }
     } else {
-      console.log("fired false");
+      button.className = "wrong";
+      game.removeLife();
     }
     //if the phrase does NOT include the guessed letter, add the 'wrong' CSS class to the selected letter's keyboard button and call the 'removeLife()' method
 

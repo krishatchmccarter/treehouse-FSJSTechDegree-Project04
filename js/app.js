@@ -27,8 +27,6 @@ let clickedKey = document.getElementsByClassName("key");
 
 for (key of clickedKey) {
   key.addEventListener("click", (e) => {
-    let clickedKeyValue = e.target.textContent;
-    console.log(clickedKeyValue);
     game.handleInteraction(e.target);
   });
 }
