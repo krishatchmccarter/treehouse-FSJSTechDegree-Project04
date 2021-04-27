@@ -20,3 +20,15 @@ document.getElementById("btn__reset").addEventListener("click", (e) => {
 });
 
 //Listens for clicks onscreen keyboard buttons
+
+//use event delegation and add a single event listener that listens for a click on any of the onscreen keyboard buttons.  Make sure that clicking the space between and around the keyboard buttons does not result in the method being called.  In the callback function call the handle interaction method on the game object (Add empty handle interaction method test code)
+
+let clickedKey = document.getElementsByClassName("key");
+
+for (key of clickedKey) {
+  key.addEventListener("click", (e) => {
+    let clickedKeyValue = e.target.textContent;
+    console.log(clickedKeyValue);
+    game.handleInteraction(e.target);
+  });
+}

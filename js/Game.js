@@ -105,4 +105,23 @@ won
         "Sorry, better luck next time!";
     }
   }
+
+  /**
+   * Handles onscreen keyboard button clicks
+   * @param (HTMLButtonElement) button - The clicked button element
+   */
+  handleInteraction(button) {
+    console.log(button);
+    //disable the selected letter's onscreen keyboard button
+    button.disabled = true;
+
+    if (game.activePhrase.checkLetter(button.textContent)) {
+      console.log("fired true");
+    } else {
+      console.log("fired false");
+    }
+    //if the phrase does NOT include the guessed letter, add the 'wrong' CSS class to the selected letter's keyboard button and call the 'removeLife()' method
+
+    //if the phrase includes the guessed letter, add the 'chosen' CSS class to the selected letter's keyboard button, call the 'showMatchedLetter()' method on the phrase, and then call the 'checkForWin()' method. If the player has won the game, also call the 'gameOver()' method.
+  }
 }
