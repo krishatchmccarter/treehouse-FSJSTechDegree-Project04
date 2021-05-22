@@ -129,4 +129,31 @@ won
 
     //if the phrase includes the guessed letter, add the 'chosen' CSS class to the selected letter's keyboard button, call the 'showMatchedLetter()' method on the phrase, and then call the 'checkForWin()' method. If the player has won the game, also call the 'gameOver()' method.
   }
+  //removes all li elements from the Phrase ul element
+
+  resetGamePhrase() {
+    console.log("hello reset");
+    const usedGame = document
+      .getElementById("phrase")
+      .getElementsByTagName("li");
+    console.log(usedGame);
+
+    while (usedGame.length > 0) {
+      usedGame[0].remove();
+    }
+  }
+
+  //enables all of the onscreen keyboard buttons and updates each to use the 'key' CSS class and not the 'chosen' or 'wrong' CSS classes
+
+  resetGameKeyboard() {
+    const usedKeyboard = document
+      .getElementById("qwerty")
+      .getElementsByTagName("button");
+    console.log(usedKeyboard);
+
+    for (key of usedKeyboard) {
+      key.disabled = false;
+      key.className = "key";
+    }
+  }
 }
