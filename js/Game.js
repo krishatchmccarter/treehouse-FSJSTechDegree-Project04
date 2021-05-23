@@ -104,6 +104,9 @@ won
       document.getElementById("game-over-message").textContent =
         "Sorry, better luck next time!";
     }
+    game.resetGameKeyboard();
+    game.resetGamePhrase();
+    game.resetLives();
   }
 
   /**
@@ -154,6 +157,15 @@ won
     for (key of usedKeyboard) {
       key.disabled = false;
       key.className = "key";
+    }
+  }
+  //reset all of the heart images in the scoreboard at the bottom of the gameboard to display the liveheart.png image
+  resetLives() {
+    const tries = document.getElementsByClassName("tries");
+    console.log(tries);
+    for (let i = 0; i < tries.length; i++) {
+      tries[i].firstElementChild.src = "images/liveHeart.png";
+      tries[i].firstElementChild.alt = "Heart Icon";
     }
   }
 }
