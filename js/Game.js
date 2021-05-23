@@ -2,17 +2,7 @@
  * Project 4 - OOP Game App
  * Game.js */
 
-/**Game.js to create a Game class methods for starting and ending the game, handling interactions, getting a random phrase, checking for a win, and removing a life from the
-scoreboard. */
-
-/**The class should also have these methods:
-handleInteraction(): this method controls most of the game logic. It checks to see if the button clicked by the player matches a letter in the phrase, and then directs the game based on a correct or incorrect guess. This method should:
-Disable the selected letter’s onscreen keyboard button.
-If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
-removeLife(): this method removes a life from the scoreboard, by replacing one of the liveHeart.png images with a lostHeart.png image (found in the images folder) and increments the missed property. If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
-checkForWin(): this method checks to see if the player has revealed all of the letters in the active phrase.
-gameOver(): this method displays the original start screen overlay, and depending on the outcome of the game, updates the overlay h1 element with a friendly win or loss message, and replaces the overlay’s start CSS class with either the win or lose CSS class. */
+/**Game.js to create a Game class methods for starting and ending the game, handling interactions, getting a random phrase, checking for a win, and removing a life from the scoreboard. */
 
 // Game class constructor initializes the following properties
 //missed used to track the number of missed guesses by the player following missed: . The initial value is 0, since no guesses have been made at the start of the game.
@@ -135,11 +125,9 @@ won
   //removes all li elements from the Phrase ul element
 
   resetGamePhrase() {
-    console.log("hello reset");
     const usedGame = document
       .getElementById("phrase")
       .getElementsByTagName("li");
-    console.log(usedGame);
 
     while (usedGame.length > 0) {
       usedGame[0].remove();
@@ -152,7 +140,6 @@ won
     const usedKeyboard = document
       .getElementById("qwerty")
       .getElementsByTagName("button");
-    console.log(usedKeyboard);
 
     for (key of usedKeyboard) {
       key.disabled = false;
@@ -162,7 +149,6 @@ won
   //reset all of the heart images in the scoreboard at the bottom of the gameboard to display the liveheart.png image
   resetLives() {
     const tries = document.getElementsByClassName("tries");
-    console.log(tries);
     for (let i = 0; i < tries.length; i++) {
       tries[i].firstElementChild.src = "images/liveHeart.png";
       tries[i].firstElementChild.alt = "Heart Icon";
