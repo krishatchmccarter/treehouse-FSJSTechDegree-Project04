@@ -9,7 +9,7 @@ document.getElementById("btn__reset").addEventListener("click", (e) => {
   //Create new instance of the Game class
   game = new Game();
   game.startGame();
-  console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+  //console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
 });
 
 //Listens for clicks onscreen keyboard buttons using event delegation to call the event Handler Method in the Game Class.
