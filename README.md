@@ -2,7 +2,7 @@
 
 My Treehouse FSJS TechDegree Project 4 - Object-Oriented Programming Game Show App
 
-In this project, I create a browser-based, word guessing game: "Phrase Hunter" using JavaScript and OOP to select a random, hidden phrase, which a player tries to guess, by clicking letters on an onscreen keyboard. I am shooting for Exceeds Expectations by having added a keyup event listener to activate the keyboard for game play and custom CSS to personalize the font and color.
+In this project, I am going for Exceeds Expectations by creating a browser-based, word guessing game with a keyup event listener to allow keyboard interaction and CSS for a custom look. "Phrase Hunter" uses JavaScript and OOP to select a random, hidden phrase, which a player tries to guess, by clicking letters on an onscreen keyboard or physical keyboard.
 
 The Rules of the Game
 The player’s goal is to guess all the letters in a hidden, random phrase.
